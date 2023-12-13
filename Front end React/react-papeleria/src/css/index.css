@@ -1,0 +1,110 @@
+body{
+  text-decoration: none;  
+  margin: 0;
+  background-color:rgb(20, 20, 20);
+}
+
+/* navegacion */
+.navegation{
+  background-color: rgb(50, 50, 50);
+  
+  display: flex;  
+  justify-content: space-between;
+  
+}
+.linkCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  margin-left: -5em;
+}
+
+.navegation img{
+  width: 80px;
+
+}
+.navegation .link{
+  text-decoration: none;
+  margin:0.5em;
+  font-size: larger;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color:white;
+}
+
+
+.navegation .link:hover{
+  text-decoration: none;
+  margin:0.5em;
+  font-size: larger;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color:rgb(105, 105, 105);
+}
+
+/* login */
+.login{
+  color: aliceblue;
+}
+.login h1{
+  font-family: system-ui;
+}
+.login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(53, 53, 57);
+  margin:auto;
+  margin-top: 1.5em;
+  width: 325px;
+  border-radius: 20px;
+  padding: 1em;
+  font-family: system-ui;
+}
+.login form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login form .username,.login form .password{
+  background-color: rgb(31, 31, 31);
+  border-radius: 10px;
+  width: 18em;
+  padding: 0.8em;
+  display: flex;
+  margin: 0.5em;
+  flex-direction: column;
+  font-size: medium;
+}
+.login form .impUserN ,.login form .impPass{
+  background-color: rgb(31, 31, 31);
+  color: aliceblue;
+  border: none;
+  box-shadow: none; 
+  padding: 8px;
+  font-size: 14px;
+} 
+.login form .Submit,.login button{
+  border-radius: 10px ;
+  color: aliceblue;
+  font-size: medium;
+  border: none;
+  box-shadow: none;
+  background-color:rgb(31, 31, 31) ;
+  padding-inline: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.login form .Submit:hover,.login button:hover{
+  background-color:rgb(105, 105, 105) ;
+}
+.login form .Submit{
+  width: 19.5em;
+}
+.login button{
+  white-space: 3em;
+  margin-top: 0.9em;
+  margin-left: auto;
+  margin-right: 0.4em;
+}

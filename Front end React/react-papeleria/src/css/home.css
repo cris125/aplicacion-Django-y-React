@@ -1,0 +1,13 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.home .Exis img{
+    width: 50px;
+}
+.home .Exis {
+    margin: 1em;
+    background-color: aquamarine;
+}
