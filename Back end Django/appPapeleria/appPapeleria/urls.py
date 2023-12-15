@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.urls import path
 from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
-from Papeleria import views
+from papeleria import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -13,3 +13,4 @@ urlpatterns = [
     path('registro/', views.ViewRegistro.as_view()),
     path('registro/<int:pk>/', views.ViewRegistro.as_view())
 ]
+"""path('admin/', admin.site.urls),"""
