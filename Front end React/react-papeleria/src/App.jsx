@@ -8,9 +8,10 @@ import Home from './templates/home'
 import './css/App.css'
 import { BrowserRouter, Link, Route,Routes,Navigate } from 'react-router-dom';
 
+
 function App() {
   const [count, setCount] = useState(0)
-
+ 
   return (
     
     <div className='App'>
@@ -21,7 +22,11 @@ function App() {
         
         <Route path='/' element={<Navigate to="/login"/>} />
         <Route path='/login' element={<LoginForm />} />
-        <Route path='/home' element={<Home/>} />
+       
+        <Route >
+          <Route path='/home' element={<Home/>} />
+        </Route>
+        
         
       </Routes>
     </BrowserRouter>

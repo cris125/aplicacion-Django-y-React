@@ -1,27 +1,21 @@
-import React, { useEffect, useState } from 'react';
-
-const Home = () => {
-  const [username, setUsername] = useState('none');
-  const [uId, setUId] = useState('');
-
-  useEffect(() => {
-    // Obtener el nombre de usuario de localStorage
-    const storedUsername = localStorage.getItem('username');
-    if (storedUsername) {
-      setUsername(storedUsername);
-    }
-
-    // Puedes obtener el uId de alguna manera, ya sea de localStorage o de otra fuente
-    const storedUId = ''; // Agrega la lógica necesaria para obtener el uId
-    setUId(storedUId);
-  }, []);
-
+import React from 'react'
+import Existencias from '../components/verExistencias'
+import InfoUser from '../components/infoUser'
+export default function home() {
   return (
-    <div className="greetings">
-      <h1>¡Bienvenido-<span>{username}</span>!</h1>
-      <h1><span>{uId}</span></h1>
+    <div className='home'>
+      
+      <div className='buscar existencias'>
+        <h1>xdxx</h1>
+      </div>
+      <div className='agregar existencias'>
+        <InfoUser/>
+      </div>
+      <div className='ver existencias'>
+        <Existencias/>
+      </div>
     </div>
-  );
-};
-
-export default Home;
+    
+    
+  )
+}

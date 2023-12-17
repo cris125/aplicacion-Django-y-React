@@ -1,37 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useForm } from "react-hook-form";
 import { redirect } from 'react-router-dom';
-
+import {userAut} from '../api/logInUser.api'
 const LoginForm = ({ onLogin, setAuth }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
-    try {
-      const response = await axios.post('http://127.0.0.1:8000/login/', {
-        username,
-        password,
-      });
-
-     
-      localStorage.setItem('token_access', response.data.access);
-      localStorage.setItem('token_refresh', response.data.refresh);
-      // Llamar a la función proporcionada por la prop para indicar que el inicio de sesión está completo
-      onLogin({
-        username,
-        token_access: response.data.access,
-        token_refresh: response.data.refresh,
-      });
-      setAuth(true);
-      
-    } catch (error) {
-      console.error('Error en el inicio de sesión:', error);
-      if (error.response && error.response.status === 401) {
-        alert('ERROR 401: Credenciales Incorrectas.');
-      }
-    }
+    userAut (username, password)
+    setUsername(''); 
+    setPassword('');
   };
 
   return (
@@ -44,7 +24,7 @@ const LoginForm = ({ onLogin, setAuth }) => {
             className='impUserN'
             type='text'
             id='username'
-            autoComplete="current-password"
+           
             placeholder='Ingresa tu usuario aquí'
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -57,7 +37,7 @@ const LoginForm = ({ onLogin, setAuth }) => {
             type='password'
             id='password'
             
-            autoComplete="current-password"
+            
             placeholder="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

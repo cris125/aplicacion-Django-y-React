@@ -1,11 +1,14 @@
 from rest_framework import status, views
+from django.conf import settings
 from rest_framework.response import Response
 from ..models.registros import Registros
 from ..serializers.registroSerializers import RegistroSerializers
-
+from rest_framework_simplejwt.backends import TokenBackend
+from rest_framework.permissions import IsAuthenticated
 class ViewRegistro(views.APIView):
     queryset = Registros.objects.all()
     serializer_class = RegistroSerializers
+    permission_classes = (IsAuthenticated,)
 
     def post(self, request, *args, **kwargs):
         serializer = RegistroSerializers(data=request.data)
@@ -22,6 +25,10 @@ class ViewRegistro(views.APIView):
     def get(self, request, *args, **kwargs):
         pk = kwargs.get('pk')
         if pk is not None:
+            """pide el toke acces para que le de la respuesta"""
+            request.META.get('HTTP_AUTHORIZATION')[7:]
+            TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
+
             registro_instance = self.get_object(pk)
             if registro_instance:
                 serializer = RegistroSerializers(registro_instance)
