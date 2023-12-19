@@ -108,3 +108,20 @@ body{
   margin-left: auto;
   margin-right: 0.4em;
 }
+
+
+
+.info{
+  display: none;
+  background-color: powderblue;
+  position: absolute;
+  top: 85px;
+
+  left: 90%;
+  
+}
+.dropdown-content:hover .info{
+  
+  background-color: aquamarine;
+  display:block
+}

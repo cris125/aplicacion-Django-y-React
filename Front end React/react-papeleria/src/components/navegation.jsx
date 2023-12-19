@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Link, Route,Routes,Navigate } from 'react-router-dom';
 import icon from '../assets/imgPapeleria.jpg'
 import { Icon } from '@iconify/react';
-
+import InfoUser from './infoUser'
 
 export default function navegation() {
   const tokenAccess = localStorage.getItem('token_access');
@@ -15,9 +15,13 @@ export default function navegation() {
         <Link className='link' to='/home'><Icon icon="material-symbols:home-outline" />Home</Link>
         <Link className='link' to='/logout'><Icon icon="material-symbols:logout" />logout</Link>
         
-        
-        
-      </div>    
+      </div>
+      
+      <div className='dropdown-content'>
+        <img src={icon} alt="" />
+        <div className='info'><InfoUser /></div>
+      </div>
+      
 
     </header>
       </dev>)

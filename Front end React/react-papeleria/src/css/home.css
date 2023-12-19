@@ -1,8 +1,9 @@
 .home{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    margin: auto;
+    background-color: antiquewhite;
 }
 .home .Exis img{
     width: 50px;
