@@ -1,7 +1,8 @@
 import React from 'react'
-import { BrowserRouter, Link, Route,Routes,Navigate } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 import icon from '../assets/imgPapeleria.jpg'
 import { Icon } from '@iconify/react';
+import ImgUser from '../assets/imgUser.png'
 import InfoUser from './infoUser'
 
 export default function navegation() {
@@ -17,9 +18,9 @@ export default function navegation() {
         
       </div>
       
-      <div className='dropdown-content'>
-        <img src={icon} alt="" />
-        <div className='info'><InfoUser /></div>
+      <div className='infoUserCont'>
+        <img src={ImgUser} alt="" />
+        <div className='info'><InfoUser className='xd'/></div>
       </div>
       
 

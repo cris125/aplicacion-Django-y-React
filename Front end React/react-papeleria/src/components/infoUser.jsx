@@ -10,18 +10,16 @@ const InfoUser = () => {
       setUserData(res.data);
     }
     getInfo();
+    
   }, []); 
 
   return (
     <div>
       {userData ? (
-        <div>
-          <h1>Hola {userData.name} </h1>
+        <div className='infoUser'>
+          <p>{userData.email}</p>
+          <h2>¡Hola, {userData.name}!</h2>
           <img src={imgUser}></img>
-          <p>Nombre: {userData.name}</p>
-          <p>Email: {userData.email}</p>
-
-          {/* Agrega más información según la estructura de los datos del usuario */}
         </div>
       ) : (
         <p>Cargando información del usuario...</p>

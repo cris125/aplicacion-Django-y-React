@@ -113,15 +113,31 @@ body{
 
 .info{
   display: none;
-  background-color: powderblue;
-  position: absolute;
-  top: 85px;
+  border: rgb(40,42,44)solid 5px;
+  
+  background-color: rgb(55, 128, 128);
 
-  left: 90%;
-  
+  position: absolute;
+  top: 82px;
+  left:72%;
+  padding: 1.5em;
+  border-radius: 10px;
 }
-.dropdown-content:hover .info{
-  
-  background-color: aquamarine;
-  display:block
+
+.infoUserCont:hover .info{
+  display: block;
 }
+.infoUserCont .info .infoUser{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(233, 233, 233);
+}
+.infoUser h2,.infoUser img{
+  margin-top:-0.5em;
+  font-weight:normal;
+}
+

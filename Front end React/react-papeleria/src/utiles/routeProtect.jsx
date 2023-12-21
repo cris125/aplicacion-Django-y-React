@@ -1,24 +1,32 @@
 import React from 'react'
 import Home from '../templates/home'
+import LoginForm from '../templates/login'
+import AgreExis  from '../components/AgregarExis'
 import { Route,Routes,Navigate} from 'react-router-dom';
+
 export default function routeProtect() {
     
     const tokenAccess = localStorage.getItem('token_access');
     if (tokenAccess){
         return (
-            <div>
+            
                 <Routes>
+                    <Route path='/' element={<Navigate to="/home"/>} />
                     <Route path='/home' element={<Home/>} />
+                    <Route path='/login' element={<Navigate to="/home"/>} />
+                    <Route path='/home/AgregarExistencia' element={<AgreExis/>}/>
                 </Routes>
-            </div>
+            
           )
     }else{
         return (
-            <div>
+           
                 <Routes>
                     <Route path='/home' element={<Navigate to="/login"/>} />
+                    <Route path='/' element={<Navigate to="/login"/>} />
+                    <Route path='/login' element={<LoginForm />} />
                 </Routes>
-            </div>
+           
             
             
           )
