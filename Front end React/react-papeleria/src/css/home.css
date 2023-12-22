@@ -13,7 +13,8 @@
 }
 
 .home .Exis img{
-    width: 15em;
+    width: 50%;
+    height: 90%;
 }
 .home .verExis{
     margin:1em;
@@ -23,31 +24,62 @@
     border-radius: 10px;
 }
 .home .Exis {
-    
+
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2em;
+    padding: 0.5em;
     border-radius:10px ;
     margin: 1em;
     background-color: rgb(254, 254, 254);
-    font-size: 5px;
+    font-size: 9px;
     width: auto;
 }
 .home .Exis h1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight:normal;
-    margin-top: -0.7em;
-    
 }
 
 .home .prod{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight:normal;
     margin-top: -0.7em;
+    background-color: aquamarine;
     align-items: center;
     justify-content: center;
+}
+
+.home .link{
+    color: antiquewhite;
+    font-size: medium;
+    text-decoration: none;
+    padding: 0.5em;
+    border-radius: 10px;
+    background-color: orange;
+    margin:0.5em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+.home .datelles{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.h1Desc{
+    display:none;
+}
+.contDesc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.contDesc:hover .h1Desc{
+    display: flex;
 }
 
 
@@ -63,26 +95,18 @@
     justify-content:space-between;
     align-items: center;
 }
-.link{
-    color: antiquewhite;
-    font-size: medium;
-    text-decoration: none;
-    padding: 0.5em;
-    border-radius: 10px;
-    background-color: orange;
-    margin:0.5em;
-}
 
-.home .Exis .link{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-   margin-top:2em;
-    
-}
 .ContBuscarExis .BuscarExis{
     padding: 1em;
     border-radius: 10px;
     color: aliceblue;
     background-color: rgb(28, 28, 28);
+}
+.fondoNegro{
+    background-color: rgb(40, 40, 40);
+    padding: 1em;
+    margin: 1em;
+    border-radius: 10px;
 }
 .ContBuscarExis .BuscarExis input{
     width: 15em;

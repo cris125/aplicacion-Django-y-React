@@ -3,7 +3,9 @@ import axios from 'axios';
 import { useForm } from "react-hook-form";
 import { redirect } from 'react-router-dom';
 import {userAut} from '../api/logInUser.api'
-const LoginForm = ({ onLogin, setAuth }) => {
+const LoginForm = () => {
+  const {register}=useForm();
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -28,6 +30,7 @@ const LoginForm = ({ onLogin, setAuth }) => {
             placeholder='Ingresa tu usuario aquí'
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            
           />
         </div>
         <div className='password'>
@@ -41,6 +44,7 @@ const LoginForm = ({ onLogin, setAuth }) => {
             placeholder="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            
           />
         </div>
 

@@ -1,10 +1,5 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import Intro from './components/intro'
+
 import Navegation from './components/navegation'
-import LoginForm from './templates/login'
-import Home from './templates/home'
 import Logout from './utiles/logoutUser.jsx'
 import RouteProtect from './utiles/routeProtect.jsx'
 import './css/App.css'

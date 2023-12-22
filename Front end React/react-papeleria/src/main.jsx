@@ -4,6 +4,7 @@ import App from './App.jsx'
 
 import './css/index.css'
 import './css/home.css'
+import './css/AgreExis.css'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
