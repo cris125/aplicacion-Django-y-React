@@ -14,7 +14,7 @@ export default function BuscarExis() {
     setBus('');
     getExis(BusExis);
   };
-  async function getExis(Busq){
+  const getExis =async(Busq)=>{
     let a=[];
     let cont=0;
     const res= await getExistencias();

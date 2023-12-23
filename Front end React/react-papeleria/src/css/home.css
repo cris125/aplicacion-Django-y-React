@@ -13,8 +13,8 @@
 }
 
 .home .Exis img{
-    width: 50%;
-    height: 90%;
+    width: 30%;
+    height: 80%;
 }
 .home .verExis{
     margin:1em;
@@ -34,6 +34,7 @@
     background-color: rgb(254, 254, 254);
     font-size: 9px;
     width: auto;
+    height: 30em;
 }
 .home .Exis h1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;

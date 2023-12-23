@@ -8,7 +8,7 @@ import InfoUser from './infoUser'
 export default function navegation() {
   const tokenAccess = localStorage.getItem('token_access');
   if (tokenAccess){
-      return(<dev>
+      return(
       <header className='navegation'>
       <img src={icon} alt="" />
       
@@ -25,7 +25,7 @@ export default function navegation() {
       
 
     </header>
-      </dev>)
+      )
   }else{
     return(
       <header className='navegation'>

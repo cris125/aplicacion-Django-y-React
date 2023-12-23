@@ -9,18 +9,20 @@ export default function routeProtect() {
     const tokenAccess = localStorage.getItem('token_access');
     if (tokenAccess){
         return (
-            
+       
                 <Routes>
                     <Route path='/' element={<Navigate to="/home"/>} />
                     <Route path='/home' element={<Home/>} />
                     <Route path='/login' element={<Navigate to="/home"/>} />
                     <Route path='/home/AgregarExistencia' element={<AgreExis/>}/>
                 </Routes>
+           
+                
             
           )
     }else{
         return (
-           
+     
                 <Routes>
                     <Route path='/home' element={<Navigate to="/login"/>} />
                     <Route path='/' element={<Navigate to="/login"/>} />

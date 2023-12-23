@@ -15,11 +15,14 @@ export const userAut = async (username, password) => {
         window.location.reload();
         location.replace('/home');
         
+        
       } catch (error) {
         console.error('Error en el inicio de sesión:', error);
         if (error.response && error.response.status === 401) {
           alert('ERROR 401: Credenciales Incorrectas.');
         }
+        return(console.log(error));
+
         
       }
 };

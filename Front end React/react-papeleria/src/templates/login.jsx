@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useForm } from "react-hook-form";
-import { redirect } from 'react-router-dom';
 import {userAut} from '../api/logInUser.api'
+
 const LoginForm = () => {
-  const {register}=useForm();
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [mens,setMens]= useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    userAut (username, password)
+    userAut (username, password);
     setUsername(''); 
     setPassword('');
   };
@@ -20,17 +19,18 @@ const LoginForm = () => {
     <div className='login'>
       <h1>Bienvenido</h1>
       <form onSubmit={handleLogin}>
+        <h1>{mens}</h1>
+        
         <div className='username'>
           <label htmlFor='username'>Username</label>
           <input
             className='impUserN'
             type='text'
-            id='username'
            
             placeholder='Ingresa tu usuario aquí'
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            
+            required
           />
         </div>
         <div className='password'>
@@ -44,6 +44,7 @@ const LoginForm = () => {
             placeholder="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
             
           />
         </div>
