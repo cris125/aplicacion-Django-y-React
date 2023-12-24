@@ -41,14 +41,7 @@
     font-weight:normal;
 }
 
-.home .prod{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight:normal;
-    margin-top: -0.7em;
-    background-color: aquamarine;
-    align-items: center;
-    justify-content: center;
-}
+
 
 .home .link{
     color: antiquewhite;

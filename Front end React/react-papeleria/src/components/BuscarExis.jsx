@@ -80,8 +80,8 @@ export default function BuscarExis() {
                   
                 
                 <div className='contenedorlinks'>
-                    <Link className='link' to={`/home/vender/${exi.id}`}>Vender</Link>
-                    <Link className='link' to={`/home/modificar/${exi.id}`}>Modificar</Link>
+                    <Link className='link' to={`/home/VenderExis/${exi.id}`}>Vender</Link>
+                    <Link className='link' to={`/home/ModificarExis/${exi.id}`}>Modificar</Link>
                 </div>
 
             </div>
