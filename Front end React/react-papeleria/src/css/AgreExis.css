@@ -53,6 +53,23 @@
 .AgreExis .Submit:hover{
     background-color: rgb(76, 76, 76);
 }
+.conth1producto-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.conth1producto-link .link{
+    color: antiquewhite;
+    font-size: medium;
+    text-decoration: none;
+    padding: 0.5em;
+    border-radius: 10px;
+    background-color: orange;
+    margin:0.5em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
 /*//////////////////**/
 
 .AgreExis  .ventanaMens{

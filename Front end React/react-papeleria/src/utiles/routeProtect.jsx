@@ -2,7 +2,7 @@ import React from 'react'
 import Home from '../templates/home'
 import LoginForm from '../templates/login'
 import AgreExis  from '../components/AgregarExis'
-import ModificarExis from '../components/ModificarExis'
+import ModificarExis from '../templates/ModificarExis'
 import { Route,Routes,Navigate} from 'react-router-dom';
 
 export default function routeProtect() {

@@ -45,6 +45,7 @@ class ViewRegistro(views.APIView):
     def put(self, request, *args, **kwargs):
         try:
             registro_instance = Registros.objects.get(pk=kwargs['pk'])
+            
         except Registros.DoesNotExist:
             return Response(
                 {"res": "Object with specified ID does not exist"},

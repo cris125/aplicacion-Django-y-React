@@ -6,8 +6,8 @@ import { Icon } from '@iconify/react';
 export default function AgregarExis () {
 
   const [name, setName] = useState('');
-  const [value, setValue] = useState(0);
-  const [existences, setExistences] = useState(0);
+  const [value, setValue] = useState(null);
+  const [existences, setExistences] = useState(null);
   const [description, setDescription] = useState('');
   const [photo, setPhoto] = useState(null);
   const [mensage,setMensage]=useState(false);
