@@ -3,6 +3,7 @@ import Home from '../templates/home'
 import LoginForm from '../templates/login'
 import AgreExis  from '../components/AgregarExis'
 import ModificarExis from '../templates/ModificarExis'
+import Registros from '../templates/Registros'
 import { Route,Routes,Navigate} from 'react-router-dom';
 
 export default function routeProtect() {
@@ -12,11 +13,15 @@ export default function routeProtect() {
         return (
        
                 <Routes>
+
                     <Route path='/' element={<Navigate to="/home"/>} />
                     <Route path='/home' element={<Home/>} />
                     <Route path='/login' element={<Navigate to="/home"/>} />
                     <Route path='/home/AgregarExistencia' element={<AgreExis/>}/>
                     <Route path='/home/ModificarExis/:id' element={<ModificarExis/>}/>
+                    <Route path='/home/Registros' element={<Registros/>}/>
+                   {/* Redirigir '/' a '/home' */}
+                   <Route path="/*" element={<Navigate to="/home" />} />
                 </Routes>
            
                 
@@ -30,6 +35,9 @@ export default function routeProtect() {
                     <Route path='/' element={<Navigate to="/login"/>} />
                     <Route path='/login' element={<LoginForm />} />
                     <Route path='/home/AgregarExistencia' element={<Navigate to="/login"/>}/>
+
+                    {/* Redirigir '/' a '/login' */}
+                    <Route path="/*" element={<Navigate to="/login" />} />
                 </Routes>
            
             

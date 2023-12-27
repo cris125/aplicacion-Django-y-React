@@ -34,6 +34,9 @@ export default function navegation() {
             <Link className='link' id='login' to='/login'>
             <Icon icon="material-symbols:login"/>Login </Link>
         </div>
+        <div className='infoUserCont'>
+        <img  alt="" />
+        </div>
       </header>
       
     )

@@ -11,6 +11,8 @@ urlpatterns = [
     path('user/', views.UserCreateView.as_view()),
     path('user/<int:pk>/', views.UserDetailView.as_view()),
     path('registro/', views.ViewRegistro.as_view()),
-    path('registro/<int:pk>/', views.ViewRegistro.as_view())
+    path('registro/<int:pk>/', views.ViewRegistro.as_view()),
+    path('ventas/',views.ViewVentas.as_view()),
+    path('ventas/<int:pk>/',views.ViewVentas.as_view())
 ]
 """path('admin/', admin.site.urls),"""
