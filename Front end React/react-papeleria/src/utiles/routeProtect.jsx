@@ -3,7 +3,7 @@ import Home from '../templates/home'
 import LoginForm from '../templates/login'
 import AgreExis  from '../components/AgregarExis'
 import ModificarExis from '../templates/ModificarExis'
-import Registros from '../templates/Registros'
+import Ventas from '../templates/Ventas'
 import { Route,Routes,Navigate} from 'react-router-dom';
 
 export default function routeProtect() {
@@ -19,7 +19,7 @@ export default function routeProtect() {
                     <Route path='/login' element={<Navigate to="/home"/>} />
                     <Route path='/home/AgregarExistencia' element={<AgreExis/>}/>
                     <Route path='/home/ModificarExis/:id' element={<ModificarExis/>}/>
-                    <Route path='/home/Registros' element={<Registros/>}/>
+                    <Route path='/home/Registros' element={<Ventas/>}/>
                    {/* Redirigir '/' a '/home' */}
                    <Route path="/*" element={<Navigate to="/home" />} />
                 </Routes>

@@ -10,11 +10,15 @@ export default function navegation() {
   if (tokenAccess){
       return(
       <header className='navegation'>
+      <link rel="icon" href={icon} />
+
       <img src={icon} alt="" />
       
       <div className='linkCenter'>
-        <Link className='link' to='/home'><Icon icon="material-symbols:home-outline" />Home</Link>
-        <Link className='link' to='/logout'><Icon icon="material-symbols:logout" />logout</Link>
+        <Link className='link' to='/home'><Icon icon="material-symbols:home-outline" />Inicio</Link>
+        
+        <Link className='link' to='/home/registros'><Icon icon="material-symbols:point-of-sale" />Registros</Link>
+        <Link className='link' to='/logout'><Icon icon="material-symbols:logout" />Cerrar<br></br>  Sesión</Link>
         
       </div>
       

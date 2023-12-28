@@ -36,22 +36,20 @@ export default function ModificarExis() {
         e.preventDefault();
         const formData = new FormData();
         if (name !=''){
-            formData.append('name', name);
-            console.log("name");}
+            formData.append('name', name);}
+
         if (value !=0){
-            formData.append('value', value);
-            console.log("value");}
+            formData.append('value', value);}
+
         if (existences !=0){
-            formData.append('existences', value);
-            console.log("existences");}
+            formData.append('existences', existences);}
+
         if(description!=''){
-            formData.append('description', description);
-            console.log("description");}
+            formData.append('description', description);}
         
         if(photo!=null ||photo!=undefined ){
-            formData.append('photo', photo)
-            console.log("photo");
-        }
+            formData.append('photo', photo)}
+            
         try{
             await ModificarProducto(id,formData);
             window.location.reload();
