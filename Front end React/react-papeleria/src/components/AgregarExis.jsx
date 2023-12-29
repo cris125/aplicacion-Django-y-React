@@ -28,7 +28,7 @@ export default function AgregarExis () {
     const payload = JSON.parse(atob(tokenParts[1]));
     const userId = payload.user_id;
 
-    const fechaExistente = new Date('2021-09-23T10:25:43.511Z');
+    const fechaExistente = new Date();
     const fechaFormateada = fechaExistente.toISOString();
 
     const formData = new FormData();

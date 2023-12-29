@@ -8,12 +8,13 @@ import {AgregarVentas,ActualizarExis} from '../api/Ventas.api'
 export default function verExistencias() {
     const [existencias,setExist] =useState([]);
     const [venta,setVenta]=useState(false);
+    const [menErrorVenta,setMenErrorVenta]=useState(false);
     const [existenciaVent,setExistenciaVen]=useState([]);
     const [cantidadVen,setCantidadVen]=useState(1);
     
     const nueVenta=async(e)=>{
         e.preventDefault();
-        const fechaExistente = new Date('2021-09-23T10:25:43.511Z');
+        const fechaExistente = new Date();
         const fechaFormateada = fechaExistente.toISOString();
         const nuevExis=(existenciaVent.existences)-cantidadVen;
         if (nuevExis>=0){
@@ -27,16 +28,18 @@ export default function verExistencias() {
                 const DataExis= new FormData();
                 DataExis.append('existences',nuevExis);
                 await ActualizarExis(DataExis,existenciaVent.id);
+                alert("Producto registrdo con exito");
+                
                 window.location.reload();
+                
+                
                 
             }catch(error){
                 console.log(error);}
         }else{
-            alert("xas");
+            setMenErrorVenta(true);
         }
-        
-
-        
+   
     }
     const ventanaVenta=async(id)=>{
         try{
@@ -47,6 +50,7 @@ export default function verExistencias() {
         setVenta(true);
     }
     const CerrarVentana=()=>{
+        setMenErrorVenta(false);
         setVenta(false);}
 
     useEffect(()=>{
@@ -56,6 +60,7 @@ export default function verExistencias() {
         }
         getExis();
     },[]);
+
   return( <div className='verExis'>
         {venta ? 
         <div className='mensage'>
@@ -77,6 +82,9 @@ export default function verExistencias() {
             
             
             </div>
+            {menErrorVenta ? <div>
+            <span><p className='MenErrorVen'>ESTE PRODUCTO NO TIENE <br></br>EXISTENCIAS PARA LA VENTA</p></span>
+            </div> :<></>}
             <form className='formVent' onSubmit={nueVenta}>
                 <label>Numero de Productos vendidos</label>
                 <input type="number" value={cantidadVen} 
@@ -88,6 +96,7 @@ export default function verExistencias() {
             </div>
             
         </div>:<></>}
+    
       {existencias.map(exi =>(
         
         <div key={exi.id} className='Exis'>
