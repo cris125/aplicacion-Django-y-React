@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import {userAut} from '../api/logInUser.api'
-
+import { Link } from 'react-router-dom';
 const LoginForm = () => {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [mens,setMens]= useState('');
+  const [mens,setMens]= useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    userAut (username, password);
+    try{
+      setMens(false);
+      await userAut (username, password);
+      
+    }catch{
+      setMens(true);
+    }
     setUsername(''); 
     setPassword('');
   };
@@ -19,7 +25,7 @@ const LoginForm = () => {
     <div className='login'>
       <h1>Bienvenido</h1>
       <form onSubmit={handleLogin}>
-        <h1>{mens}</h1>
+        {mens?<p className='mensajeErrorLogin'><span>Contraseña o Usuario incorrecto</span></p>:<></>}
         
         <div className='username'>
           <label htmlFor='username'>Username</label>
@@ -51,7 +57,8 @@ const LoginForm = () => {
 
         <input className='Submit' type='submit' value='Ingresar' />
       </form>
-      <button>Crear Cuenta</button>
+      <Link  to={'/nuevoUsuario'} className='button'>Crear Cuenta</Link>
+      
     </div>
   );
 };

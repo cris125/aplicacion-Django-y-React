@@ -1,0 +1,150 @@
+.RegisVentas{   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+.RegisVentas .FormVen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(55, 128, 128);
+    border-radius:10px ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 1em;
+    margin: 2em;
+    width: 70%;
+}
+.RegisVentas .FormVen .contInput {
+    background-color: rgb(40, 40, 40);
+    color: aliceblue;
+    padding: 1em;
+    border-radius: 10px;
+    font-size:20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+}
+.RegisVentas .FormVen .contInput .contFechaLabrel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.RegisVentas .FormVen  form {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.RegisVentas .FormVen  form .fecha {
+    font-size: medium;
+    border: none;
+    padding: 0.5em;
+    border-radius: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 0.5em;  
+}
+.RegisVentas .FormVen  form .Submit {
+    color: antiquewhite;
+    font-size: medium;
+    text-decoration: none;
+    border: none;
+    padding: 0.5em;
+    border-radius: 10px;
+    background-color: orange;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 1em;
+    margin-left:auto;
+    
+}
+
+.RegisVentas .FormVen  form .Submit:hover {
+    background-color: rgb(167, 118, 26); 
+}
+
+.RegisVentas .FormVen  h1 {
+    color: aliceblue;
+    font-weight:normal;
+}
+/* tabla **/
+.contP-Button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.RegisVentas .tablaReg p{
+    background-color: orange;
+    padding: 1em;
+    border-radius: 10px;
+    color: aliceblue;
+    font-size: large;
+    margin-left:-75%;
+}
+.RegisVentas .tablaReg button{
+    background-color: rgb(255, 47, 0);
+    width: 10em;
+    padding: 1em;
+    height: 4em;
+    border: none;
+    border-radius: 10px;
+    color: aliceblue;
+    margin-right:-75%;
+    
+}
+.RegisVentas .tablaReg button:hover{
+    background-color: rgb(144, 31, 6);
+    
+}
+.RegisVentas .tablaReg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(55, 128, 128);
+    border-radius:10px ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 1em;
+    width: 70%;
+}
+.RegisVentas .tablaReg h1{
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+    font-weight:normal;
+    background-color: rgb(40, 40, 40);
+    width: 90%;
+    padding: 0.5em;
+    border-radius:10px ;
+}
+.RegisVentas .tablaReg table{
+    
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    border-collapse: collapse;
+
+    width: 90%;
+    padding: 0.5em;
+    border-radius:10px ;
+
+}
+.RegisVentas .tablaReg table tr,td{
+    text-align: center; 
+    padding: 0.4em;
+    
+    
+}
+.RegisVentas .tablaReg table tr:nth-child(odd){
+    background-color: rgb(40, 40, 40);
+
+}
+.RegisVentas .tablaReg table tr:nth-child(even){
+    background-color: rgb(72, 72, 72);
+
+}

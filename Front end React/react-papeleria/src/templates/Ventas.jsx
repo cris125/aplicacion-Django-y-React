@@ -1,35 +1,37 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import {VerVentas} from '../api/Ventas.api'
+import {VerVentas,ElimRegisVentas} from '../api/Ventas.api'
 export default function Ventas() {
   
   const [resBusqueda,setResBusqueda]= useState([]);
-  const [fechaIn,setFechaIn]=useState("");
+  const [fechaIn,setFechaIn]=useState("")
   const [fechaFin,setFechaFin]=useState("");
-  const buscarFecha=(e)=>{
+  const [mensage,setmensage]=useState("");
+  const [suma,setSuma]=useState(0)
+  const buscarFecha=async(e)=>{
     e.preventDefault();
-    console.log(fechaIn);
-    console.log(fechaFin);
+    const res= await VerVentas();
+    const newRes =filtrarFechas(res.data,fechaIn,fechaFin);
+    let Sum=0
+          for (let i=0;i<newRes.length;i++){
+            const num=parseInt(newRes[i].valueProduct);
+            Sum=Sum+num;}
+          setSuma(Sum);
+    if(newRes.length===0){
+      setmensage("No se encontraron ventas");
+    }
+    setResBusqueda(newRes);
   }
-  const eliRegistosVen=()=>{
-    window.location.reload();
+  const eliRegistosVen=async()=>{
+    try{
+      const res=await ElimRegisVentas();
+      window.location.reload();}
+    catch(error){
+      console.log(error);}
   }
 
   const formatearFechaBusqueda = (fecha) => {
     const opciones = { year: 'numeric', month: 'numeric', day: 'numeric' };
-    const fechaFormateada = new Date(fecha).toLocaleDateString(undefined, opciones);
-    let nuevaFechaFormateada = "";
-    for (let i = 0; i < fechaFormateada.length; i++) {
-      if (fechaFormateada[i] === '/') {
-        nuevaFechaFormateada += '-';
-      } else {
-        nuevaFechaFormateada += fechaFormateada[i];
-      }
-    }
-    return nuevaFechaFormateada;
-  };
-  const formatearFecha = (fecha) => {
-    const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
     const fechaFormateada = new Date(fecha).toLocaleDateString(undefined, opciones);
     return fechaFormateada;
   };
@@ -39,44 +41,69 @@ export default function Ventas() {
     const fechaFormateada = new Date(fecha).toLocaleString(undefined, opciones);
     return fechaFormateada;
   };
-
-  
-  
+  const filtrarFechas = (res, fechaInicio, fechaFin) => {
+    const fechaInicioTimestamp = new Date(fechaInicio).getTime();
+    const fechaFinTimestamp = new Date(fechaFin).getTime();
+    
+    return res.filter((registro) => {
+      const fechaTimestamp = new Date(registro.dateTime).getTime();
+      return fechaTimestamp >= fechaInicioTimestamp && fechaTimestamp <= fechaFinTimestamp;
+    });
+  };
   useEffect(()=>{
-    async function getVentas(){
-      const res=await VerVentas();
-      setResBusqueda(res.data);
-    }
-    getVentas();
-  },[])
-  return (
-    <div>
-      <div>
-      <h1>bucar ventas segun fecha</h1>
-      <form onSubmit={buscarFecha} action="">
+    async function getExis(){
+        const res= await VerVentas();
+        if (res.data && res.data.length > 0) {
+          const ultimos10Registros = res.data.slice(-10);
+          setResBusqueda(ultimos10Registros);
+          let Sum=0
+          for (let i=0;i<ultimos10Registros.length;i++){
+            const num=parseInt(ultimos10Registros[i].valueProduct);
+            Sum=Sum+num;}
+          setSuma(Sum);
+          
+        }else{
+          setmensage("No hay ventas");
+        }
         
+        
+
+        
+    }
+    getExis();
+},[]);
+  return (
+    <div className='RegisVentas'>
+      <div className='FormVen'>
+      <h1>Ventas</h1>
+      <form onSubmit={buscarFecha} action="">
+        <div className='contInput'>
         <div className='contFechaLabrel'>
           <label htmlFor="">Fecha inicial</label>
-          <input type="date" value={fechaIn} onChange={(e) => setFechaIn(e.target.value)}/>
+          <input className='fecha' type="date" value={fechaIn}   onChange={(e) => setFechaIn(e.target.value)} required/>
         </div>
 
         <div className='contFechaLabrel'>
           <label htmlFor="">Fecha final</label>
-          <input type="date" value={fechaFin} onChange={(e) => setFechaFin(e.target.value)}/>
+          <input className='fecha' type="date" value={fechaFin} onChange={(e) => setFechaFin(e.target.value)} required/>
         </div>
-        <input type="submit" />
+        </div>
+        
+        <input className="Submit" type="submit" value="Buscar"/>
       </form>
-      <h1>sadsada</h1>
       </div>
-      {resBusqueda && resBusqueda.length > 0 && (
-        <div>
+      {resBusqueda && resBusqueda.length > 0 ? (
+        
+        <div className='tablaReg'>
+          <h1>Fechas encontradas</h1>
+          
           <table>
             <thead>
               <tr>
-                <th>dateTime</th>
-                <th>dateTime</th>
-                <th>nameProduct</th>
-                <th>valueProduct</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Nombre Producto</th>
+                <th>Valor Producto</th>
               </tr>
             </thead>
             <tbody>
@@ -86,13 +113,19 @@ export default function Ventas() {
                   <td>{formatearHora(rea.dateTime)}</td>
                   <td>{rea.nameProduct}</td>
                   <td>{rea.valueProduct}</td>
-                  <td></td>
                 </tr>
               ))}
             </tbody>
           </table>
+          <div className='contP-Button'>
+            <p><span>Suma:</span>{suma}</p>
+            <button onClick={eliRegistosVen}>Eliminar Todos los Registros</button>
+          </div>
+          
         </div>
-      )}
+      ):(<div className='tablaReg'>
+        <h1>{mensage}</h1>
+      </div>)}
       
       
     </div>

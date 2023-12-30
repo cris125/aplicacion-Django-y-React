@@ -85,7 +85,8 @@ body{
   padding: 8px;
   font-size: 14px;
 } 
-.login form .Submit,.login button{
+.login form .Submit,.login .button{
+  text-decoration: none;
   border-radius: 10px ;
   color: aliceblue;
   font-size: medium;
@@ -96,13 +97,13 @@ body{
   padding-top: 0.5em;
   padding-bottom: 0.5em;
 }
-.login form .Submit:hover,.login button:hover{
+.login form .Submit:hover,.login .button:hover{
   background-color:rgb(105, 105, 105) ;
 }
 .login form .Submit{
   width: 19.5em;
 }
-.login button{
+.login .button{
   white-space: 3em;
   margin-top: 0.9em;
   margin-left: auto;
@@ -139,5 +140,9 @@ body{
 .infoUser h2,.infoUser img{
   margin-top:-0.5em;
   font-weight:normal;
+}
+.mensajeErrorLogin{
+ color: red;
+
 }
 

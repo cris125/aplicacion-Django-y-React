@@ -5,16 +5,11 @@ const AutoRefresh = () => {
     const intervalId = setInterval(() => {
       // Recargar la página
       window.location.reload();
-    }, 150000); // 300,000 milisegundos = 5 minutos
+    }, 250000); // 300,000 milisegundos = 5 minutos
 
     return () => clearInterval(intervalId);
   }, []); 
 
-  return (
-    <div>
-      {}
-    </div>
-  );
 };
 
 export default AutoRefresh;

@@ -4,6 +4,7 @@ import LoginForm from '../templates/login'
 import AgreExis  from '../components/AgregarExis'
 import ModificarExis from '../templates/ModificarExis'
 import Ventas from '../templates/Ventas'
+import CrearUsuario from '../templates/crearUsuario'
 import { Route,Routes,Navigate} from 'react-router-dom';
 
 export default function routeProtect() {
@@ -33,8 +34,8 @@ export default function routeProtect() {
                 <Routes>
                     <Route path='/home' element={<Navigate to="/login"/>} />
                     <Route path='/' element={<Navigate to="/login"/>} />
-                    <Route path='/login' element={<LoginForm />} />
-                    <Route path='/home/AgregarExistencia' element={<Navigate to="/login"/>}/>
+                    <Route path='/nuevoUsuario' element={<CrearUsuario/>}/>
+                    <Route path='/login' element={<LoginForm />} />                    
 
                     {/* Redirigir '/' a '/login' */}
                     <Route path="/*" element={<Navigate to="/login" />} />
