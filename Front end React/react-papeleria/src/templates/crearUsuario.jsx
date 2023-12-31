@@ -10,6 +10,10 @@ export default function crearUsuario() {
   const [email,setEmail]=useState('');  
   const [menErrorContr,setMenErrorContr]=useState(false);
   const [menErrorUsu,setMenErrorUsu]=useState(false);
+
+  const handlePaste = (e) => {
+    e.preventDefault();
+  }
   const handleCrearUs=async(e)=>{
     e.preventDefault();
     if(passwordVer===password){
@@ -25,16 +29,19 @@ export default function crearUsuario() {
         account,
       };
       try{
-        await NewUser(userData);  
+        await NewUser(userData);
+         
       }catch(error){
         if (error.response && error.response.status === 400) {
-          // Manejar el error 400 aquí
-          console.log('Error 400: Datos de usuario inválidos');
+          setUsername('');
+          setPassword('');
+          setPasswordVer('');
+          setName('');
+          setEmail('');
+          setMenErrorUsu(true);
         } else {
-          // Manejar otros errores
           console.error('Error:', error.message);
         }
-        console.log(error);
       }
 
     }else{
@@ -48,25 +55,30 @@ export default function crearUsuario() {
   }
 
   return (
-    <div>
-      {menErrorContr?<h1>Error: Las contraseñas no coinciden</h1>:<></>}
+    <div className='crearUsu'>
+      
       <form onSubmit={handleCrearUs} className='formCrearUs'>
+      <h1>Crear Nuevo Usuario</h1>
       <div className='label-imput'>
-          {menErrorUsu?<></>:<h1>Pon otro Username</h1>}
+          {menErrorUsu?<span> <p className='error'>Error: Pon otro nombre de usuario <br/> este nombre ya esta ocupado</p></span>:<></> }
           <label htmlFor="">Nombre De Usuario</label>
           <input type="text" id='username' placeholder='nombre'
           value={username}
+          autoComplete="username"
           onChange={(e) => setUsername(e.target.value)}
           
           required
           />
       </div>
+      
       <div className='label-imput'>
+          {menErrorContr?<span><p className='error'>Error: Las contraseñas no coinciden</p></span>:<></>}
           <label htmlFor="">Contraseña</label>
           <input type="password" id='password' placeholder='contraseña'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          
+          autoComplete="new-password"
+          onPaste={handlePaste}
           required
           
           />
@@ -76,7 +88,8 @@ export default function crearUsuario() {
           <input type="password" id='passwordConfi' placeholder='contraseña de nuevo'
           value={passwordVer}
           onChange={(e) => setPasswordVer(e.target.value)}
-        
+          autoComplete="new-password"
+          onPaste={handlePaste}
           required
           />
       </div>

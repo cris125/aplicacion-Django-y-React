@@ -1,20 +1,17 @@
 .home{
-    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
 }
-.Existencias{
-    width: 83%;
-    align-items: center;
-    justify-content:center;
+.home .Existencias{
+    width: 85%;
 }
 
 .home .Exis img{
-    width: 30%;
-    height: 80%;
+    width: 40%;
+    height: 70%;
 }
 .home .verExis{
     margin:1em;
@@ -28,13 +25,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     padding: 0.5em;
     border-radius:10px ;
     margin: 1em;
     background-color: rgb(254, 254, 254);
     font-size: 9px;
     width: auto;
-    height: 30em;
+    height: 40em;
 }
 .home .Exis h1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;

@@ -14,9 +14,6 @@ export const userAut = async (username, password) => {
        // Recarga la página después de una autenticación exito
     window.location.reload();
     location.replace('/home');
-        
-        
-
-        
+      
       
 };

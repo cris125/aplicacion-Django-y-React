@@ -19,10 +19,11 @@ export default function verExistencias() {
         const nuevExis=(existenciaVent.existences)-cantidadVen;
         if (nuevExis>=0){
             try{
+                const valorProduct=(existenciaVent.value)*cantidadVen;
                 const DataVent= new FormData();
                 DataVent.append('dateTime',fechaFormateada);
                 DataVent.append('nameProduct',existenciaVent.name);
-                DataVent.append('valueProduct',existenciaVent.value);
+                DataVent.append('valueProduct',valorProduct);
                 DataVent.append('registro',existenciaVent.id);
                 await AgregarVentas(DataVent);
                 const DataExis= new FormData();

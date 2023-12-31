@@ -1,0 +1,45 @@
+.crearUsu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.crearUsu .formCrearUs{
+    background-color: rgb(53, 53, 57);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    border-radius: 10px;
+    margin: 1em;
+}
+.crearUsu .formCrearUs h1{
+    color: aliceblue;
+    font-weight:normal;
+    font-size: 1.5em;
+}
+.crearUsu .formCrearUs .error{
+    color: rgb(255, 0, 0);
+    font-size: small;
+}
+
+.crearUsu .formCrearUs .label-imput input{
+    padding: 0.5em;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(31, 31, 31);
+    color: aliceblue;
+    font-size: small ;
+}
+.crearUsu .formCrearUs .Submit{
+    padding: 0.5em;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(31, 31, 31);
+    color: aliceblue;
+    font-size: medium ;
+}
+.crearUsu .formCrearUs .Submit:hover{
+    background-color: rgb(94, 94, 94);
+}

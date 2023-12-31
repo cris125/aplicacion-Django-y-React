@@ -140,6 +140,11 @@
     
     
 }
+.RegisVentas .tablaReg table th{
+    background-color: rgb(19, 19, 19);
+    padding: 1em;
+    
+}
 .RegisVentas .tablaReg table tr:nth-child(odd){
     background-color: rgb(40, 40, 40);
 

@@ -11,6 +11,8 @@ export default function Ventas() {
   const buscarFecha=async(e)=>{
     e.preventDefault();
     const res= await VerVentas();
+    
+
     const newRes =filtrarFechas(res.data,fechaIn,fechaFin);
     let Sum=0
           for (let i=0;i<newRes.length;i++){
@@ -42,8 +44,13 @@ export default function Ventas() {
     return fechaFormateada;
   };
   const filtrarFechas = (res, fechaInicio, fechaFin) => {
-    const fechaInicioTimestamp = new Date(fechaInicio).getTime();
-    const fechaFinTimestamp = new Date(fechaFin).getTime();
+    const fechaInicioDate = new Date(fechaInicio);
+    const fechaFinDate = new Date(fechaFin);
+    fechaFinDate.setDate(fechaFinDate.getDate() + 1);
+    fechaInicioDate.setDate(fechaFinDate.getDate() - 1);
+    const fechaInicioTimestamp = fechaInicioDate.getTime();
+    const fechaFinTimestamp = fechaFinDate.getTime();
+
     
     return res.filter((registro) => {
       const fechaTimestamp = new Date(registro.dateTime).getTime();
@@ -112,13 +119,13 @@ export default function Ventas() {
                   <td>{formatearFechaBusqueda(rea.dateTime)}</td>
                   <td>{formatearHora(rea.dateTime)}</td>
                   <td>{rea.nameProduct}</td>
-                  <td>{rea.valueProduct}</td>
+                  <td>${rea.valueProduct-0}</td>
                 </tr>
               ))}
             </tbody>
           </table>
           <div className='contP-Button'>
-            <p><span>Suma:</span>{suma}</p>
+            <p><span>Suma:</span>${suma}</p>
             <button onClick={eliRegistosVen}>Eliminar Todos los Registros</button>
           </div>
           
