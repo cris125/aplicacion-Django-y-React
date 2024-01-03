@@ -81,7 +81,7 @@ export default function BuscarExis() {
       setadd("No se encontrados Productos");
       setExist(a);
     }else{
-      setadd("Productos Encontrados");
+      setadd("Productos Encontrados "+'"'+Busq+'"');
       setExist(a);}
     
 }
