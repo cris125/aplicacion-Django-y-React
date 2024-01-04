@@ -97,10 +97,21 @@ WSGI_APPLICATION = 'appPapeleria.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}"""
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'CAa2E2EBGA53B6a6*563AAgDe2d1AA44',
+        'HOST': 'monorail.proxy.rlwy.net',  
+        'PORT': '16360',  
     }
 }
 
